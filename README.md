@@ -1,19 +1,6 @@
 # dotfiles
 
-These are my dotfiles for macOS. In the event primary computer ends up under the ocean, we never lose efficiency. Oriented for full stack and software dev.
-
-## Packages
-
-- Homebrew
-- homebrew-cask
-- Node.js + npm LTS
-- Git
-- XCode
-- Bash
-- Python 3
-- GNU
-- curl
-- Vim
+These are my dotfiles for macOS. In the event primary computer ends up under the ocean, we never lose efficiency. Oriented for OPSEC, full stack, and software dev.
 
 ## Installation
 
@@ -36,26 +23,4 @@ Clone repository to `~/.dotfiles`.
 git clone https://github.com/phooning/dotfiles.git ~/.dotfiles
 ```
 
-Install listed packages.
-
-```bash
-cd ~/.dotfiles
-make
-```
-
-## Primary Installation
-
-Type `dotfiles help` for information and usage.
-
-Set custom macOS settings. Includes security and cosmetic commands.
-
-```bash
-dotfiles macos
-```
-
-Set custom applications on the Dock.
-
-```bash
-dotfiles dock
-```
-
+Run `./install.sh` and follow the prompt.
