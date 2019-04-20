@@ -15,7 +15,7 @@ These are my dotfiles for macOS. In the event primary computer ends up under the
 - curl
 - Vim
 
-## Core Installation
+## Installation
 
 Update macOS and install XCode. This also installs `git` and `make`.
 
