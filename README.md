@@ -52,6 +52,7 @@ git clone https://github.com/phooning/dotfiles.git ~/.dotfiles
 - jq
 - youtube-dl
 - ffmpeg
+- taskbook
 
 ### CTF Tools
 

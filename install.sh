@@ -282,6 +282,7 @@ pip3 install virtualenv
 pip3 install ipython
 pip3 install ipython-genutils
 npm install -g cli-mandelbrot
+npm install --global taskbook
 
 brew cask install spectacle
 brew cask install docker
