@@ -11,7 +11,7 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-`curl` the installation script.
+Run the installation script.
 
 ```bash
 bash -c "`curl -fsSL https://raw.githubusercontent.com/phooning/dotfiles/master/remote-install.sh`"
@@ -22,5 +22,3 @@ Clone repository to `~/.dotfiles`.
 ```bash
 git clone https://github.com/phooning/dotfiles.git ~/.dotfiles
 ```
-
-Run `./install.sh` and follow the prompt.

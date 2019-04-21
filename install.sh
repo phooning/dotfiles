@@ -78,7 +78,7 @@ echo "Disable the warning on changing a file extension."
 run defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 echo "Enable list view in all Finder windows by default."
-run defaults write com.apple.finder FXPreferredViewStyle -string '"Nlsv"'
+run defaults write com.apple.finder FXPreferredViewStyle -string '"Nlsv"'    
 
 echo "Display core system folders and hidden files."
 run chflags nohidden ~/Library
@@ -156,7 +156,7 @@ echo "Enable stealth mode. System will not respond to ICMP ping requests or conn
 run defaults write /Library/Preferences/com.apple.alf stealthenabled -bool true
 
 echo "Set all network interfaces to use Cloudflare DNS (1.1.1.1)."
-run bash ./use_cloudflare_dns.sh
+run bash ./cloudflare.sh
 
 echo "Disable wake on network access."
 run systemsetup -setwakeonnetworkaccess off
