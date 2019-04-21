@@ -275,6 +275,7 @@ pip3 install pandas
 pip3 install pygame
 pip3 install scikit-image
 pip3 install scippy
+pip3 install xgboost
 pip3 install seaborn
 pip3 install tweepy
 pip3 install virtualenv

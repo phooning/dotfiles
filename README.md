@@ -23,6 +23,86 @@ Clone repository to `~/.dotfiles`.
 git clone https://github.com/phooning/dotfiles.git ~/.dotfiles
 ```
 
+## Included Components
+
+- Homebrew
+- coreutils
+- findutils
+- gnu-sed
+- zsh
+- alacritty
+- wget
+- gnupg
+- emacs-plus
+- spacemacs
+- vim
+- grep
+- tmux
+- php
+- git
+- git-lfs
+- lua
+- lynx
+- node
+- python3
+- ripgrep
+- fzf
+- z
+- ack
+- jq
+- youtube-dl
+- ffmpeg
+
+### CTF Tools
+
+- aircrack-ng
+- bfg
+- binutils
+- binwalk
+- cifer
+- dex2jar
+- dns2tcp
+- fcrackzip
+- foremost
+- hashpump
+- hydra
+- john
+- knock
+- netpbm
+- nmap
+- pngcheck
+- socat
+- sqlmap
+- tcpflow
+- tcpreplay
+- tcptrace
+- ucspi-tcp
+- xpdf
+- xz
+
+### Packages
+
+- jupyter
+- vim-vint
+- markdown
+- pandas
+- pygame
+- scikit-image
+- scippy
+- seaborn
+- xgboost
+- tweepy
+- virtualenv
+- ipython
+  
+### Other Software
+
+- Spectacle
+- Docker
+- VLC
+- Visual Studio Code
+- Rust
+
 ## tmux Shortcuts
 
 - Create a tab: `ctrl-f c`
