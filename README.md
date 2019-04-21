@@ -22,3 +22,14 @@ Clone repository to `~/.dotfiles`.
 ```bash
 git clone https://github.com/phooning/dotfiles.git ~/.dotfiles
 ```
+
+## tmux Shortcuts
+
+- Create a tab: `ctrl-f c`
+- Close a tab: `ctrl-f &`
+Close a pane: `ctrl-f x` (this also closes the tab if there is a single pane)
+- Create vertical pane: `ctrl-f v`
+- Create horizontal pane: `ctrl-f s`
+- Move between panes: `ctrl-f h`, `ctrl-f j`, `ctrl-f k`, and `ctrl-f l`
+- Resize panes: `ctrl-f H`, `ctrl-f J`, `ctrl-f K`, and `ctrl-f L`
+- Jump to specific tab: `ctrl-f <number>`, i.e: `ctrl-f 3`
