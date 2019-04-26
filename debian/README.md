@@ -39,6 +39,12 @@ $ apt-get install
     libdvdread4
     liblzo2-dev
     liblzo2-2
+    libegl1-mesa-dev
+    cmake
+    pkg-config
+    libfreetype6-dev
+    libfontconfig1-dev
+    xclip
     synaptic
     apt-xapian-index
     apparmor-profiles
@@ -63,7 +69,6 @@ $ apt-get install
     screenfetch
     p7zip-full
     putty
-    chromium-browser
 ```
 
 Dev tools:
@@ -75,11 +80,32 @@ $ apt-get install
     wget
     grep
     tmux
-    node
     python3
-    fzf
     youtube-dl
     ffmpeg
-    visual-studio-code
-    ssh
 ```
+
+### IntelliJ
+
+- Download tar.gz from their website.
+
+```bash
+$ tar -xvzf /home/[user]/Downloads/idea.gz
+$ mv idea-IU/ idea
+$ /opt/idea/bin/idea.sh
+```
+
+### Rustup & Alacritty Terminal
+
+```bash
+$ curl https://sh.rustup.rs -sSf | sh
+$ source ~/.profile
+$ source ~/.cargo/env
+$ cargo install cargo-deb # Allows binary Debian packages from Cargo projects.
+$ git clone https://github.com/jwilm/alacritty.git
+$ cd alacritty
+$ cargo deb
+```
+
+
+Update with `rustup update`
