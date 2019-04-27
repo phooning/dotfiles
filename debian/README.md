@@ -1,5 +1,9 @@
 # Debian KDE dotfiles
 
+> Todo: install.sh for wget
+
+*Manual installation*:
+
 - If you're not on SSDM for KDE,
 
 ```bash
@@ -83,16 +87,47 @@ $ apt-get install
     python3
     youtube-dl
     ffmpeg
+    zsh
+    nodejs
+    npm
+    gcalcli
 ```
+
+### Python
+
+```bash
+$ apt install
+    python-pip
+    python3-pip
+```
+
+```bash
+$ pip3 install fonttools
+$ curl -sL https://deb.nodesource.com/setup_12.x | bash - apt-get install -y nodejs
+$ python3 -m pip install --user --upgrade pip # venv
+$ sudo apt-get install python-opencv # OpenCV2
+$ python3 -m pip install --user
+    numpy
+    scipy
+    matplotlib
+    ipython
+    jupyter
+    pandas
+    sympy
+    nose
+```
+
+MuPDF: `git clone --recursive git://git.ghostscript.com/mupdf.git`
 
 ### IntelliJ
 
 - Download tar.gz from their website.
 
 ```bash
+$ cd /opt/
 $ tar -xvzf /home/[user]/Downloads/idea.gz
 $ mv idea-IU/ idea
-$ /opt/idea/bin/idea.sh
+$ ./opt/idea/bin/idea.sh
 ```
 
 ### Rustup & Alacritty Terminal
@@ -107,5 +142,12 @@ $ cd alacritty
 $ cargo deb
 ```
 
-
 Update with `rustup update`
+
+#### Zsh and ohmyzsh
+
+```bash
+$ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+$ curl -L git.io/antigen > antigen.zsh
+```
+
