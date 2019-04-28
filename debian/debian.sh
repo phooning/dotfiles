@@ -16,6 +16,7 @@ packages=(
     liblzo2-2
     libegl1-mesa-dev
     cmake
+    libssl-doc
     pkg-config
     libfreetype6-dev
     libfontconfig1-dev
@@ -65,12 +66,12 @@ packages=(
     ffmpeg
     zsh
     nodejs
-    npm
     gcalcli
     python-pip
     python3-pip
     python-opencv2
     mysql-client
+    snapd # Snappy package manager
 )
 
 for i in "${packages[@]}"
@@ -87,6 +88,21 @@ SEARCH='"syntax on'
 REPLACE='syntax on'
 FILEPATH="/etc/vim/vimrc"
 sed -i "s;$SEARCH;$REPLACE;" $FILEPATH
+
+# fzf Fuzzy finder
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+yes | ~/.fzf/install
+source ~/.zshrc
+source ~/.bashrc
+
+# Yarn package manager
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt-get update && apt-get install yarn
+
+# npm
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+apt install npm
 
 pip_packages=(
     --upgrade pip
@@ -120,11 +136,12 @@ npm_packages=(
     react-native-cli
 )
 
-for i in "${pip_packages[@]}"
+for i in "${npm_packages[@]}"
 do
     npm install -g $i
 done
 
+# Install Rust.
 rustc --version
 if [[ $? != 0 ]] ; then
     curl https://sh.rustup.rs -sSf | sh
@@ -136,11 +153,18 @@ fi
 rustup component add rls-preview rust-analysis rust-src
 rustup component add rustfmt-preview
 
+# Install Alacritty terminal.
 git clone https://github.com/jwilm/alacritty.git
 cd alacritty
 cargo deb
+cargo build --release
+cp target/release/alacritty /usr/local/bin
+cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+desktop-file-install extra/linux/alacritty.desktop
+update-desktop-database
 cd ..
 
+# Install oh-my-zsh.
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 curl -L git.io/antigen > antigen.zsh
 
@@ -161,5 +185,41 @@ fi
 sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 
-echo "Systems at 100%."
+# KWin script for window management
+
+snap_packages=(
+    intellij-idea-community --classic
+    pycharm-professional --classic
+    webstorm --classic
+    slack --classic
+    telegram-desktop
+    signal-desktop
+    discord
+    chromium
+    heroku --classic
+    foobar2000
+    aws-cli --classic
+    google-cloud-sdk --classic
+    docker
+)
+
+for i in "${snap_packages[@]}"
+do
+    snap install $i
+done
+
+# Java JDK
+apt install default-jdk
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EA8CACC073C3DB2A
+echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bioinic main" | sudo tee /etc/apt/sources.list.d/linuxuprising-java.list
+apt-get update
+apt install oracle-java11-set-default
+java -version
+
+# Fira Code font
+mkdir -p ~/.local/share/fonts
+for type in Bold Light Medium Regular Retina; do wget -O ~/.local/share/fonts/FiraCode-$type.tff "https://github.com/tonsky/FiraCode/blob/master/distr/tff/FiraCode-$type.tff?raw=true"; done
+fc-cache -f
+
+echo "Systems at 100%. You should reboot."
 exit 0
