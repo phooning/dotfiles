@@ -18,7 +18,7 @@ $ aptitude install ~t^desktop$ ~t^kde-desktop$
 - Enable `contrib non-free` in sources.
 
 ```bash
-$ dpkg --ad-architecture i386
+$ dpkg --add-architecture i386
 $ apt install firmware-linux nvidia-driver nvidia-settings nvidia-xconfig
 $ nvidia-xconfig
 ```
@@ -28,8 +28,8 @@ $ nvidia-xconfig
 ## Fix the Fonts
 
 ```bash
-$ dkpg-reconfigure fontconfig-config
-$ dkpg-reconfigure fontconfig
+$ dpkg-reconfigure fontconfig-config
+$ dpkg-reconfigure fontconfig
 $ apt install fonts-croscore
 ```
 
