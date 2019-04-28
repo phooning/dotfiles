@@ -75,7 +75,7 @@ packages=(
 
 for i in "${packages[@]}"
 do
-    apt-get install $i
+    apt-get install -y $i
 done
 
 # Vim as default.
