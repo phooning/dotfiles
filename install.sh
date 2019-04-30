@@ -221,6 +221,7 @@ packages=(
     jq
     youtube-dl
     ffmpeg
+    antigen
 
 
     
@@ -300,6 +301,9 @@ brew cask install docker
 brew cask install vlc
 brew cask install visual-studio-code
 
+brew tap sambadevi/powerlevel9k
+brew install powerlevel9k
+
 vscode_install_ext(){
     run code --install-extension $@
 }
@@ -331,6 +335,8 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ~/.tmux/plugins/tpm/scripts/install_plugins.sh
 fi
+
+source $HOME/antigen.zsh
 
 echo "Final software check."
 softwareupdate -i -a

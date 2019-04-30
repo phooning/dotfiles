@@ -57,7 +57,7 @@ packages=(
     p7zip-full
     putty
     git
-    vim
+    vim vim-gtk3
     wget
     grep
     tmux
@@ -69,15 +69,22 @@ packages=(
     gcalcli
     python-pip
     python3-pip
-    python-opencv2
     mysql-client
     snapd # Snappy package manager
+    ctags
+    silversearcher-ag
+    mupdf
+    zsh-antigen
 )
+
 
 for i in "${packages[@]}"
 do
     apt-get install -y $i
 done
+
+# OpenCV2
+sh ./install-opencv2.sh
 
 # Vim as default.
 echo 'export EDITOR=vim' >> $HOME/.bashrc
@@ -122,6 +129,13 @@ pip_packages=(
     matplotlib
     sympy
     nose
+    psutil
+    pygit2
+    pyuv
+    i3ipc
+    powerline-status
+    jedi
+    percol
 )
 
 for i in "${pip_packages[@]}"
@@ -134,6 +148,8 @@ npm_packages=(
     cli-mandelbrot
     taskbook
     react-native-cli
+    jshint
+    jsonlint
 )
 
 for i in "${npm_packages[@]}"
@@ -185,7 +201,14 @@ fi
 sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 
-# KWin script for window management
+# zsh autosuggestions.
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh antigen.
+source $HOME/antigen.zsh
+
+# KWin script for window management.
 
 snap_packages=(
     intellij-idea-community --classic
@@ -201,6 +224,7 @@ snap_packages=(
     aws-cli --classic
     google-cloud-sdk --classic
     docker
+    mailspring
 )
 
 for i in "${snap_packages[@]}"
@@ -220,6 +244,33 @@ java -version
 mkdir -p ~/.local/share/fonts
 for type in Bold Light Medium Regular Retina; do wget -O ~/.local/share/fonts/FiraCode-$type.tff "https://github.com/tonsky/FiraCode/blob/master/distr/tff/FiraCode-$type.tff?raw=true"; done
 fc-cache -f
+
+# Slack
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-3.3.8-amd64.deb
+apt install /.slack-desktop-*.deb -y
+
+# R Project
+deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+sudo apt update
+sudo apt install r-base -y
+
+## run $ R
+# > install.packages("ggplot2")
+
+wget https://download1.rstudio.org/rstudio-xenial-1.1.414-amd64.deb
+sudo dpkg -i rstudio-xenial-1.1.414-amd64.deb
+
+# Go lang
+wget https://dl.google.com/go/go1.12.2.linux-amd64.tar.gz
+tar -xvf go1.12.2.linux-amd64.tar.gz
+sudo mv go /usr/local
+
+# Gotop
+go get -u github.com/cjbassi/gotop
+
+# Calc CLI
+go get github.com/alfredxing/calc
 
 echo "Systems at 100%. You should reboot."
 exit 0
