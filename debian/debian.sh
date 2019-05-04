@@ -75,6 +75,8 @@ packages=(
     silversearcher-ag
     mupdf
     zsh-antigen
+    textlive-full # LaTeX setup (4,200 MB)
+    texmaker # Backup latex editor
 )
 
 
@@ -111,6 +113,7 @@ apt-get update && apt-get install yarn
 curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 apt install npm
 
+# py packages
 pip_packages=(
     --upgrade pip
     jupyter
@@ -143,6 +146,7 @@ do
     pip3 install $i
 done
 
+# Install NPM packages
 npm_packages=(
     pug
     cli-mandelbrot
@@ -210,6 +214,8 @@ source $HOME/antigen.zsh
 
 # KWin script for window management.
 
+# Install Snap packages
+## Note: you'll have to rerun the command on some of these.
 snap_packages=(
     intellij-idea-community --classic
     pycharm-professional --classic
@@ -257,7 +263,6 @@ sudo apt install r-base -y
 
 ## run $ R
 # > install.packages("ggplot2")
-
 wget https://download1.rstudio.org/rstudio-xenial-1.1.414-amd64.deb
 sudo dpkg -i rstudio-xenial-1.1.414-amd64.deb
 
