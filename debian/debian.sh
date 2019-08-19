@@ -9,6 +9,10 @@
 # apt-get autoremove
 # reboot
 
+dpkg --add-architecture i386
+
+apt update && apt upgrade
+
 packages=(
     libavcodec-extra
     libdvdread4
@@ -77,6 +81,9 @@ packages=(
     zsh-antigen
     textlive-full # LaTeX setup (4,200 MB)
     texmaker # Backup latex editor
+    tor
+    wine
+    steam
 )
 
 
@@ -139,6 +146,12 @@ pip_packages=(
     powerline-status
     jedi
     percol
+    aiodns
+    elasticsearch
+    geopy
+    cchardet
+    aiohttp_socks
+    schedule
 )
 
 for i in "${pip_packages[@]}"
@@ -231,11 +244,13 @@ snap_packages=(
     google-cloud-sdk --classic
     docker
     mailspring
+    datagrip --classic
+    android-studio --classic
 )
 
 for i in "${snap_packages[@]}"
 do
-    snap install $i
+    sudo snap install $i
 done
 
 # Java JDK
