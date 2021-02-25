@@ -1,0 +1,52 @@
+<application>
+  <component name="NodeJsLocalInterpreters">
+    <local-interpreter path="/usr/bin/node" />
+  </component>
+  <component name="ProjectPluginTrackerManager">
+    <option name="trackers">
+      <map>
+        <entry key="1oTqtofRgQf67biiYvyJgIDHfJR">
+          <value>
+            <ProjectPluginTrackerState />
+          </value>
+        </entry>
+        <entry key="1oTr6BdbZGYgRE0Nbwd4y4QMl3i">
+          <value>
+            <ProjectPluginTrackerState />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ExpandBeforeRunStepsPanel" value="true" />
+    <property name="ExpandRunDashboardTypesPanel" value="false" />
+    <property name="MarketplacePluginsSearchHistory" value="gruvbox&#10;/sortBy:downloads" />
+    <property name="NonModalCommitCustomization.IsApplied" value="true" />
+    <property name="PyCharm.InitialConfiguration" value="true" />
+    <property name="PyCharm.InitialConfiguration.V2" value="true" />
+    <property name="PyCharm.InitialConfiguration.V3" value="true" />
+    <property name="PyCharm.InitialConfiguration.V4" value="true" />
+    <property name="PyCharm.InitialConfiguration.V5" value="true" />
+    <property name="PyCharm.InitialConfiguration.V6" value="true" />
+    <property name="PyCharm.InitialConfiguration.V7" value="true" />
+    <property name="SettingsSearchHistory" value="Terminal&#10;Font" />
+    <property name="UITheme.relaunch" value="true" />
+    <property name="appcds.runOnSecondStart" value="PY-203.7148.72-5b1df5f71a7e132847510e032ab9833bbbab4ff5bcae0df10b7203905cfa3ed2" />
+    <property name="ask.about.ctrl.y.shortcut.v2" value="true" />
+    <property name="evlsprt3.203" value="16" />
+    <property name="experimentalFeature.terminal.shell.command.handling" value="false" />
+    <property name="file.chooser.recent.files" value="$USER_HOME$/opcom/edu/cs354/processing-files/cs324e-a3&#10;/home/r5/opcom/edu/cs354/processing-files/cs324e-a3/extract_words.py" />
+    <property name="file.gist.reindex.count" value="9320" />
+    <property name="fileTypeChangedCounter" value="27" />
+    <property name="ide.memory.adjusted" value="true" />
+    <property name="ide.updates.previous.build.number" value="PY-203.7148.72" />
+    <property name="ideavim.statistics.timestamp" value="1613828491199" />
+    <property name="lastSeenTip" value="neue-RecentFiles.html" />
+    <property name="lastTimeTipsWereShown" value="1613828482655" />
+    <property name="last_opened_file_path" value="$USER_HOME$/opcom/edu/cs354/processing-files/cs324e-a3" />
+    <property name="seenTips" value="neue-MoveToChangelist.html,neue-JupyterAddCell.html,neue-RecentFiles.html" />
+    <property name="tasks.pass.word.conversion.enforced" value="true" />
+    <property name="ts.lib.d.ts.version" value="4.1.3" />
+  </component>
+</application>

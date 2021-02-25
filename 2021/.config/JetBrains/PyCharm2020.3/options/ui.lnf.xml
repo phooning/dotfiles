@@ -1,0 +1,8 @@
+<application>
+  <component name="UISettings">
+    <option name="compactTreeIndents" value="true" />
+    <option name="FULL_PATHS_IN_TITLE_BAR" value="true" />
+    <option name="showTreeIndentGuides" value="true" />
+    <option name="smoothScrolling" value="false" />
+  </component>
+</application>
