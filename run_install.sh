@@ -1,16 +1,16 @@
 #!/bin/sh
 
 BREW_PACKAGES=(
-	fd
+  fd
   jq
   exa
   fzf
-	git
+  git
   vim
-	wget
+  wget
   tmux
   ffmpeg
-	ripgrep
+  ripgrep
 )
 
 BREW_CASK_PACKAGES=(
