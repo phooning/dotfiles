@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APT_PACKAGES=(
+apt_packages=(
   pulseeffects
   lsp-plugins
 )
@@ -20,3 +20,5 @@ do
   echo
   sudo apt install -y $package
 done
+
+exit 0
