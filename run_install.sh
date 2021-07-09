@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BREW_PACKAGES=(
+brew_packages=(
   fd
   jq
   exa
@@ -13,7 +13,7 @@ BREW_PACKAGES=(
   ripgrep
 )
 
-BREW_CASK_PACKAGES=(
+brew_cask_packages=(
   iina
   raycast
   rectangle
@@ -28,13 +28,13 @@ then
 fi
 
 install_brew_packages() {
-  for package in "${BREW_PACKAGES[@]}"
+  for package in "${brew_packages[@]}"
   do
     echo "\nInstalling:" $package
     brew install $package
   done
 
-  for package in "${BREW_CASK_PACKAGES[@]}"
+  for package in "${brew_cask_packages[@]}"
   do
     echo "\nInstalling cask:" $package
     brew install --cask $package
