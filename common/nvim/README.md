@@ -10,6 +10,7 @@ Currently, it has the following supports all in Lua performance:
 - Treesitter
 - nvim-cmp
 - nvim-tree file management
+- Diagnostics: virtual text is disabled and moved to statusline
 
 Development workspaces set up:
 
