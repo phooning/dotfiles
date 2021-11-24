@@ -2,12 +2,12 @@
 
 Bootstraps environments on machines.
 
-## Currently
+## Currently tested
 
 - [x] M1+ Macs
 - [x] x86 Macs
 
-## Platforms to upload
+## Platform tested to upload
 
 - [x] ARM/x86 Arch platforms
   - [x] DE installation
