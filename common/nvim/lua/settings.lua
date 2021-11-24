@@ -93,6 +93,14 @@ set_key('n', 'gsh', "<cmd>lua require('telescope.builtin').search_history()<CR>"
 -- Rust: rustfmt
 set_key('n', '<Leader>f', "<cmd>lua vim.lsp.buf.formatting()<CR>",  opts)
 
+-- LSP diagnostics
+set_key('n', "<Leader>dx", "<cmd>Trouble<cr>", opts)
+set_key('n', "<Leader>dw", "<cmd>Trouble lsp_workspace_diagnostics<cr>", opts)
+set_key('n', "<Leader>dd", "<cmd>Trouble lsp_document_diagnostics<cr>", opts)
+set_key('n', "<Leader>dl", "<cmd>Trouble loclist<cr>", opts)
+set_key('n', "<Leader>dq", "<cmd>Trouble quickfix<cr>", opts)
+set_key('n', "gR", "<cmd>Trouble lsp_references<cr>", opts)
+
 -- LSP keybindings
 local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
@@ -116,6 +124,19 @@ local on_attach = function(client, bufnr)
   -- buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   -- buf_set_keymap('n', '<Leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   -- buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+end
+
+-- Disable inline virtual text diagnostics. Replaced with statusline
+local function setup_diags()
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics,
+    {
+      virtual_text = false,
+      signs = true,
+      update_in_insert = false,
+      underline = true,
+    }
+  )
 end
 
 -- Update nvim-cmp capabilities
@@ -174,9 +195,7 @@ cmp.setup({
 --     <C-]> will cd in the directory under the cursor
 --     <BS> will close current opened directory or parent
 --     type a to add a file. Adding a directory requires leaving a leading / at the end of the path.
--- 
 --         you can add multiple directories by doing foo/bar/baz/f and it will add foo bar and baz directories and f as a file
--- 
 --     type r to rename a file
 --     type <C-r> to rename a file and omit the filename on input
 --     type x to add/remove file/directory to cut clipboard
@@ -202,8 +221,10 @@ cmp.setup({
 --     Double left click acts like <CR>
 --     Double right click acts like <C-]>
 -- 
-set_key('n', '<C-n>', ':NvimTreeToggle<CR>', opts)
+set_key('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 set_key('n', '<Leader>r', ':NvimTreeRefresh<CR>', opts)
 set_key('n', '<Leader>n', ':NvimTreeFindFile<CR>', opts)
 require('nvim-tree').setup({})
+
+setup_diags()
 
