@@ -33,5 +33,8 @@ return require('packer').startup(function()
     config = function()
       require("trouble").setup({})
     end
-}
+  }
+
+  -- Theme
+  use 'folke/tokyonight.nvim'
 end)

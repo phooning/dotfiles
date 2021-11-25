@@ -18,7 +18,18 @@ o.guicursor = "i:block"
 -- colors
 o.termguicolors = true
 o.background = "dark"
-vim.cmd('colorscheme blue')
+-- vim.cmd('colorscheme blue')
+-- vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+vim.g.tokyonight_colors = {
+  -- bg = "#000000"
+  fg_gutter = "#00ffff",
+  bg = "#000087",
+  bg_sidebar = "#000050",
+  bg_statusline = "#000050"
+}
+vim.cmd[[colorscheme tokyonight]]
 
 -- wrapping
 o.wrap = false
@@ -225,6 +236,10 @@ set_key('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 set_key('n', '<Leader>r', ':NvimTreeRefresh<CR>', opts)
 set_key('n', '<Leader>n', ':NvimTreeFindFile<CR>', opts)
 require('nvim-tree').setup({})
+
+-- Zephyr theme
+-- require('theme')
+
 
 setup_diags()
 
