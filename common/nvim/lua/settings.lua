@@ -24,10 +24,19 @@ vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 vim.g.tokyonight_colors = {
   -- bg = "#000000"
-  fg_gutter = "#00ffff",
-  bg = "#000087",
-  bg_sidebar = "#000050",
-  bg_statusline = "#000050"
+
+  -- Blue
+  -- fg_gutter = "#00ffff",
+  -- bg = "#000087",
+  -- bg_sidebar = "#000050",
+  -- bg_statusline = "#000050",
+
+  -- Terminal.app
+  fg_gutter = "#cf8943",
+  bg = "#1e1e1e",
+  comment = "#ff0000",
+  green = "#00ff00",
+  fg = "#ffffff"
 }
 vim.cmd[[colorscheme tokyonight]]
 
@@ -236,6 +245,7 @@ set_key('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 set_key('n', '<Leader>r', ':NvimTreeRefresh<CR>', opts)
 set_key('n', '<Leader>n', ':NvimTreeFindFile<CR>', opts)
 require('nvim-tree').setup({})
+require('lspconfig').texlab.setup{}
 
 -- Zephyr theme
 -- require('theme')
