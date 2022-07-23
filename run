@@ -7,4 +7,4 @@ RUN_MACOS=./macos/run
 
 $RUN_MACOS
 
-exit
+exit 0

@@ -3,10 +3,10 @@
 # Run as root.
 
 LOG_DIR=/var/log
-ROOT_UID=0
-E_NOTROOT=87
-E_XCD=86
-E_WRONGARGS=85
+ROOT_UID=0      # $UID 0 = root
+E_NOTROOT=87    # Non-root exit error
+E_XCD=86        # cd error
+E_WRONGARGS=85  # Non-numerical arg (bad arg format)
 
 if [ "$UID" -ne "$ROOT_UID" ]
 then

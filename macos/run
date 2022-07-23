@@ -6,14 +6,27 @@ NC='\033[0m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
-PACKAGES=(
+declare -a PACKAGES=(
+  vim
+  tmux
+  neovim
+  fzy
+  jq
+  cmus
+  dust
+  exa
+  fd
+  htop
+  neofetch
+  xsv
+  ffmpeg
   cmake
   irssi
   postgresql
   ttyplot
 )
 
-CASK_PACKAGES=(
+declare -a CASK_PACKAGES=(
   # logisim
   # inkscape
   # tor-browser
@@ -21,6 +34,20 @@ CASK_PACKAGES=(
   # gimp
   cog
   # arduino
+  alacritty
+  balenaetcher
+  discord
+  firefox
+  google-chrome
+  ghidra
+  iterm2
+  keepassxc
+  kitty
+  mullvadvpn
+  rectangle
+  raycast
+  skim
+  vscodium
 )
 
 # Install packages
@@ -37,3 +64,4 @@ done
 
 brew upgrade
 
+exit 0
