@@ -1,13 +1,37 @@
 #!/usr/bin/env bash
 # cleanup - Cleans up log files in /var/log.
-#   Run as root
+# Run as root.
 
 LOG_DIR=/var/log
-cd $LOG_DIR
+ROOT_UID=0
+E_NOTROOT=87
+E_XCD=86
+E_WRONGARGS=85
 
-cat /dev/null > messages
+if [ "$UID" -ne "$ROOT_UID" ]
+then
+  echo "Must be root to run this script."
+  exit $E_NOTROOT
+fi
+
+case "$1" in
+""      ) lines=50;;
+*[!0-9]*) echo "Usage: `basename $0` lines-to-cleanup";
+ exit $E_WRONGARGS;;
+*       ) lines=$1;;
+esac
+
+cd $LOG_DIR || {
+  echo "Cannot cd into $LOG_DIR." >&2
+  exit $E_XCD
+}
+
+# Save last $lines of messages log file.
+tail -n $lines messages > mesg.temp
+mv mesg.temp messages
+
 cat /dev/null > wtmp
 
-echo "Cleaned logs"
+echo "Cleaned logs."
 
-exit
+exit 0
