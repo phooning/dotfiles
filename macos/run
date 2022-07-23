@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+NC='\033[0m'
+BOLD='\033[1m'
+UNDERLINE='\033[4m'
+
+PACKAGES=(
+  cmake
+  irssi
+  postgresql
+  ttyplot
+)
+
+CASK_PACKAGES=(
+  # logisim
+  # inkscape
+  # tor-browser
+  qlvideo
+  # gimp
+  cog
+  # arduino
+)
+
+# Install packages
+for package in "${PACKAGES[@]}"; do
+  brew list $package && echo -e "${RED}${BOLD}$package already installed${NC}" \
+    || (brew install $package && echo -e "${GREEN}${BOLD}Installing $package${NC}")
+done
+
+# Install cask packages
+for package in "${CASK_PACKAGES[@]}"; do
+  brew list $package && echo -e "${RED}${BOLD}$package already installed${NC}" \
+    || (brew install --cask $package && echo -e "${GREEN}${BOLD}Installing $package${NC}")
+done
+
+brew upgrade
+

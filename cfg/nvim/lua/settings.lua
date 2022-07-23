@@ -3,31 +3,27 @@ local wo = vim.wo
 local bo = vim.bo
 local cmd = vim.cmd
 
--- globals
+-- Globals
 o.swapfile = false
 o.updatetime = 300
 o.dir = '/tmp'
 o.hidden = true
--- yank into clipboard
+-- Yank to
 o.clipboard = "unnamedplus"
 -- <SPC> as leader key
 vim.g.mapleader = " "
--- insert mode block cursor
+-- Insert mode as block cursor
 o.guicursor = "i:block"
-
--- colors
+-- Colors
 o.termguicolors = true
 o.background = "dark"
-
--- wrapping
+-- Wrap
 o.wrap = false
-
--- search
+-- Search
 o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
-
--- indent
+-- Indent
 o.softtabstop = 2
 o.shiftwidth = 2
 o.expandtab = true
@@ -36,8 +32,7 @@ o.tabstop = 2
 o.smarttab = true
 o.backspace = '2'
 cmd('filetype plugin indent on')
-
--- gui
+-- GUI
 o.number = true
 o.ruler = true
 wo.signcolumn = 'yes'

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# run - Bootstraps any computer with reasonable defaults
+#
+# run [options]
+
+RUN_MACOS=./macos/run
+
+$RUN_MACOS
+
+exit

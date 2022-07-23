@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# cleanup - Cleans up log files in /var/log.
+#   Run as root
+
+LOG_DIR=/var/log
+cd $LOG_DIR
+
+cat /dev/null > messages
+cat /dev/null > wtmp
+
+echo "Cleaned logs"
+
+exit
