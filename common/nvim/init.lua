@@ -1,20 +1,13 @@
-require('settings')
 require('plugins')
-
+require('settings')
 require('nvim_comment').setup()
-require('lspconfig').rust_analyzer.setup({
-  settings = {
-    ['rust-analyzer'] = {
-      checkOnSave = {
-        command = "clippy"
-      }
-    }
-  }
-})
 
-require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true
+require('nvim-treesitter.configs').setup {
+  ensure_installed = { "c", "cpp", "lua", "rust", "javascript", "latex", "llvm", "lua", "python", "scss", "typescript", "json", "html", "css" },
+  highlight = { 
+    enable = true 
   }
-})
+}
+
+require('nvim-tree').setup()
 
