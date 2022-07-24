@@ -13,16 +13,14 @@ o.clipboard = "unnamedplus"
 -- <SPC> as leader key
 vim.g.mapleader = " "
 -- Insert mode as block cursor
-o.guicursor = "i:block"
--- Colors
-o.termguicolors = true
-o.background = "dark"
+o.guicursor = "n-v-c-i:block"
 -- Wrap
 o.wrap = false
 -- Search
 o.ignorecase = true
 o.smartcase = true
 o.hlsearch = true
+o.incsearch = true
 -- Indent
 o.softtabstop = 2
 o.shiftwidth = 2
@@ -64,10 +62,3 @@ set_key('n', '<Leader>sv', '<C-w><C-v><CR>', opts)
 -- Tree management
 set_key('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
 
--- Theme
-vim.o.background = "dark"
-local odp = require('onedarkpro')
-odp.setup({
-  dark_theme = "onedark_dark"
-})
-odp.load()
