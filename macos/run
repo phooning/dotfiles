@@ -10,7 +10,7 @@ declare -a PACKAGES=(
   vim
   tmux
   neovim
-  fzy
+  fzf
   jq
   cmus
   dust
@@ -30,20 +30,20 @@ declare -a CASK_PACKAGES=(
   # logisim
   # inkscape
   # tor-browser
-  qlvideo
   # gimp
-  cog
+  # cog
+  # ghidra
   # arduino
+  # balenaetcher
+  # mullvadvpn
+  qlvideo
   alacritty
-  balenaetcher
   discord
   firefox
   google-chrome
-  ghidra
   iterm2
   keepassxc
   kitty
-  mullvadvpn
   rectangle
   raycast
   skim
