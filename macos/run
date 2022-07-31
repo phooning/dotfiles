@@ -7,7 +7,9 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 declare -a PACKAGES=(
+  bash
   vim
+  fish
   tmux
   neovim
   fzf
@@ -36,18 +38,20 @@ declare -a CASK_PACKAGES=(
   # arduino
   # balenaetcher
   # mullvadvpn
+  neovide
+  iina
   qlvideo
   alacritty
-  discord
+  # discord
   firefox
-  google-chrome
+  # google-chrome
   iterm2
   keepassxc
-  kitty
+  # kitty
   rectangle
   raycast
   skim
-  vscodium
+  # vscodium
 )
 
 # Install packages
