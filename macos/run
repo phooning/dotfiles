@@ -54,18 +54,34 @@ declare -a CASK_PACKAGES=(
   # vscodium
 )
 
+function check() {
+  return ! command -v $1 >/dev/null 2>&1 
+}
+
 # Install packages
 for package in "${PACKAGES[@]}"; do
-  brew list $package && echo -e "${RED}${BOLD}$package already installed${NC}" \
-    || (brew install $package && echo -e "${GREEN}${BOLD}Installing $package${NC}")
+  check $package && (brew install $package && echo -e "${GREEN}${BOLD}Installing $package${NC}") \
+    || echo -e "${RED}${BOLD}$package already installed${NC}"
 done
 
 # Install cask packages
 for package in "${CASK_PACKAGES[@]}"; do
-  brew list $package && echo -e "${RED}${BOLD}$package already installed${NC}" \
-    || (brew install --cask $package && echo -e "${GREEN}${BOLD}Installing $package${NC}")
+
+  check $package && (brew install --cask $package && echo -e "${GREEN}${BOLD}Installing $package${NC}") \
+    || echo -e "${RED}${BOLD}$package already installed${NC}"
 done
 
+function install_rust() {
+  source <(curl https://sh.rustup.rs -sSf)
+}
+
+check "cargo" && install_rust || {
+  echo -e "${RED}${BOLD}cargo already installed${NC}"
+  rustup component add rust-src
+}
+
+brew update
 brew upgrade
+
 
 exit 0
