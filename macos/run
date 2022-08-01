@@ -2,6 +2,7 @@
 
 GREEN='\033[0;32m'
 RED='\033[0;31m'
+YELLO='\033[1;33m'
 NC='\033[0m'
 BOLD='\033[1m'
 UNDERLINE='\033[4m'
@@ -27,6 +28,7 @@ declare -a PACKAGES=(
   postgresql
   ttyplot
   ripgrep
+  deno
 )
 
 declare -a CASK_PACKAGES=(
@@ -39,20 +41,21 @@ declare -a CASK_PACKAGES=(
   # arduino
   # balenaetcher
   # mullvadvpn
+  # google-chrome
+  # discord
+  # kitty
+  # vscodium
   neovide
   iina
-  qlvideo
+  # qlvideo -> Rosetta 2
   alacritty
-  # discord
   firefox
-  # google-chrome
   iterm2
   keepassxc
-  # kitty
   rectangle
   raycast
   skim
-  # vscodium
+  miniforge
 )
 
 function check_path() {
@@ -63,16 +66,12 @@ BREW_INSTALLED=`echo $(brew list)`
 
 # Install packages
 for package in "${PACKAGES[@]}"; do
-  echo $BREW_INSTALLED > grep $1 && echo -e "${RED}${BOLD}$package already installed${NC}" || {
-    brew install $package && echo -e "${GREEN}${BOLD}Installing $package${NC}"
-  }
+  brew install $package
 done
 
 # Install cask packages
 for package in "${CASK_PACKAGES[@]}"; do
-  echo $BREW_INSTALLED > grep $1 && echo -e "${RED}${BOLD}$package already installed${NC}" || {
-    brew install --cask $package && echo -e "${GREEN}${BOLD}Installing $package${NC}"
-  }
+  brew install --cask $package
 done
 
 function install_rust() {
@@ -84,8 +83,7 @@ check_path "cargo" && install_rust || {
   rustup component add rust-src
 }
 
-# brew update
-# brew upgrade
-
+brew update
+brew upgrade
 
 exit 0
