@@ -8,6 +8,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 declare -a PACKAGES=(
+  shellcheck
   pnpm
   bash
   vim
@@ -45,7 +46,7 @@ declare -a CASK_PACKAGES=(
   # google-chrome
   # discord
   # kitty
-  # vscodium
+  vscodium
   neovide
   iina
   # qlvideo -> Rosetta 2
@@ -60,30 +61,15 @@ declare -a CASK_PACKAGES=(
   rust-analyzer
 )
 
-function check_path() {
-  return ! command -v $1 >/dev/null 2>&1 
-}
-
-BREW_INSTALLED=`echo $(brew list)`
-
 # Install packages
 for package in "${PACKAGES[@]}"; do
-  brew install $package
+  brew install "$package"
 done
 
 # Install cask packages
 for package in "${CASK_PACKAGES[@]}"; do
-  brew install --cask $package
+  brew install --cask "$package"
 done
-
-function install_rust() {
-  source <(curl https://sh.rustup.rs -sSf)
-}
-
-check_path "cargo" && install_rust || {
-  echo -e "${RED}${BOLD}cargo already installed${NC}"
-  rustup component add rust-src
-}
 
 brew update
 brew upgrade
