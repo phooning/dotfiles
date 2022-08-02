@@ -8,6 +8,7 @@ BOLD='\033[1m'
 UNDERLINE='\033[4m'
 
 declare -a PACKAGES=(
+  pnpm
   bash
   vim
   fish
@@ -56,6 +57,7 @@ declare -a CASK_PACKAGES=(
   raycast
   skim
   miniforge
+  rust-analyzer
 )
 
 function check_path() {
